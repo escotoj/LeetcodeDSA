@@ -10,7 +10,7 @@
 
 
 let nums = [2, 7, 11, 15, 11, 15, 12, 2, 12, 3, 4, 7, 12, 20];
-let target = 24;
+let target = 9;
 // function leetCodeOne(nums, target) {
 //     const numberMap = new Map();
 // for (let index = 0; index < nums.length; index++) {
@@ -63,16 +63,40 @@ let target = 24;
 
 // console.log(result)
 
-const twoSum = (nums, target) => {
-    let map = new Map();
+// const twoSum = (nums, target) => {
+//     let map = new Map();
+//     for (let i = 0; i < nums.length; i++) {
+//         const element = target - nums[i];
+//         if (map.has(element)) {
+//             return [map.get(element), i]
+//         }
+//         map.set(nums[i], i)
+//     }
+//     return []
+// }
+
+// console.log(twoSum(nums, target))
+
+function twoSum(nums, target) {
+    let numMap = new Map();
     for (let i = 0; i < nums.length; i++) {
-        const element = target - nums[i];
-        if (map.has(element)) {
-            return [map.get(element), i]
+        const compliment = target - nums[i];
+        if(numMap.has(compliment)) {
+            return [numMap.get(compliment), i]
         }
-        map.set(nums[i], i)
+        numMap.set(nums[i], i)
     }
     return []
 }
 
 console.log(twoSum(nums, target))
+
+// 09/06 everything was set up correctly expect the return. 
+//needs more work
+// declare a function and pass the two parameter, nums, and target. 
+// begin the function byy declaring a changing variable called numMap and have it equal to a new Map in order to keep track of indices. 
+// we need a for-loop to go through the array and find the compliment to each number. 
+// we have a varibel insdie the loop that calbulates the differnece between nums[i] and target. 
+// Inside the loop we create conditional statements that will check if the map has the compliment for each number in the array. 
+// if the map contains the compliment we will return it as an arra that contains the compliment and the index of that number.
+// 
