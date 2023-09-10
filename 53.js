@@ -3,7 +3,7 @@
 // subarray with the largest sum, and return its sum.
 
 // Example 1:
-// Input: nums = [-2,1,-3,4,-1,2,1,-5,4]
+const nums = [-2,1,-3,4,-1,2,1,-5,4]
 // Output: 6
 // Explanation: The subarray [4,-1,2,1] has the largest sum 6.
 // Example 2:
@@ -45,17 +45,32 @@
 
 // CORRECT 
 
-var maxSubArray = function(nums) {
-    let maxSum = nums[0]; // Initialize maxSum with the first element of the array
-    let currentSum = nums[0]; // Initialize currentSum with the first element
+// var maxSubArray = function(nums) {
+//     let maxSum = nums[0]; // Initialize maxSum with the first element of the array
+//     let currentSum = nums[0]; // Initialize currentSum with the first element
 
-    for (let i = 1; i < nums.length; i++) {
-        // Calculate the current sum by either starting a new subarray or continuing the current one
-        currentSum = Math.max(nums[i], currentSum + nums[i]);
+//     for (let i = 1; i < nums.length; i++) {
+//         // Calculate the current sum by either starting a new subarray or continuing the current one
+//         currentSum = Math.max(nums[i], currentSum + nums[i]);
         
-        // Update maxSum if the current sum is greater
-        maxSum = Math.max(maxSum, currentSum);
-    }
+//         // Update maxSum if the current sum is greater
+//         maxSum = Math.max(maxSum, currentSum);
+//     }
 
+//     return maxSum;
+// };
+
+
+var maxSubArray = function(nums) {
+    let maxSum = nums[0];
+    let currentSum = nums[0];
+    for (let i = 1; i < nums.length; i++) {
+        currentSum = Math.max(nums[i], currentSum + nums[i]);
+        maxSum = Math.max(maxSum, currentSum)
+    }
+    console.log(currentSum)
+    console.log(maxSum)
     return maxSum;
-};
+}
+
+maxSubArray(nums)
