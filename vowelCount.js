@@ -29,9 +29,8 @@ let vowelNums = 0;
     if(vowels.includes(str[i].toLowerCase())) {
         vowelNums++
     }
-    
    }
    return vowelNums
-    
 }
+
 console.log(vowelCount(str))
