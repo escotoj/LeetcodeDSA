@@ -42,3 +42,29 @@ var buildArray = function(nums) {
   };
 
   console.log(buildArray(nums))
+
+// works without the need for passing nums.lenght
+
+//   This question asks you to create a new array `ans` based on a given zero-based permutation array `nums`. The relationship between the elements of `ans` and `nums` is defined as follows: `ans[i]` should be equal to `nums[nums[i]]` for every valid index `i` within the range `[0, nums.length - 1]`.
+
+// Here's a step-by-step explanation of the problem:
+
+// 1. You are given an input array `nums`, which is a zero-based permutation. This means that `nums` contains distinct integers ranging from 0 to `nums.length - 1`, inclusive. In other words, `nums` is a permutation of the numbers from 0 to `nums.length - 1`.
+
+// 2. Your task is to create a new array `ans` of the same length as `nums`, where each element `ans[i]` is determined based on the value at `nums[i]`.
+
+// 3. To compute `ans[i]`, you should look at the value at the index `nums[i]` in the `nums` array. This value is also within the range `[0, nums.length - 1]` since `nums` is a zero-based permutation.
+
+// 4. The value at `nums[i]` in the `nums` array should be used as an index to access another element in the `nums` array. This accessed element will be the value assigned to `ans[i]`.
+
+// In simpler terms, you are essentially mapping each index `i` in the `ans` array to another index `nums[i]` within the `nums` array. The value at that index in the `nums` array becomes the value at index `i` in the `ans` array. This mapping creates a new array `ans` with elements rearranged according to the specified relationship.
+
+// Here's an example:
+
+// Suppose `nums` is `[2, 0, 1]`. To build the `ans` array:
+
+// - For `ans[0]`, you look at `nums[0]`, which is 2. So, `ans[0]` should be `nums[2]`, which is 1.
+// - For `ans[1]`, you look at `nums[1]`, which is 0. So, `ans[1]` should be `nums[0]`, which is 2.
+// - For `ans[2]`, you look at `nums[2]`, which is 1. So, `ans[2]` should be `nums[1]`, which is 0.
+
+// The resulting `ans` array is `[1, 2, 0]`, which satisfies the condition `ans[i] = nums[nums[i]]` for all valid indices `i`.
