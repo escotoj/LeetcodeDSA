@@ -63,19 +63,37 @@
 //   };
 
 // Second attempt after glancing at solution
-var finalValueAfterOperations = function(operations) {
-    let x = 0;
-    for(let i = 0; i < operations.length; i++) {
-     if(operations[i] == "++X" || operations[i] == "X++") {
-         x++
-     } else {
-         x--
-     }
-    }
-    return x
-};
+// var finalValueAfterOperations = function(operations) {
+//     let x = 0;
+//     for(let i = 0; i < operations.length; i++) {
+//      if(operations[i] == "++X" || operations[i] == "X++") {
+//          x++
+//      } else {
+//          x--
+//      }
+//     }
+//     return x
+// };
 
 // the strings inside operation are only strings and unless they are taken out of strings they dont do any operations
 // we set up a conditional statement checking for the strings and we set the corresponding operation for that string. we can use the == or === since they are an exact match in data types
 // with the variable we created earlier we apply the ++ or -- to it 
 
+function fizzBuzz(n) {
+    let results = [];
+    for (let i = 1; i <= n; i++) {
+        if (i % 3 === 0 && i % 5 === 0) {
+            results.push("FizzBuzz");
+        } else if (i % 3 === 0) {
+            results.push("Fizz");
+        } else if (i % 5 === 0) {
+            results.push("Buzz");
+        } else {
+            results.push(i);
+        }
+    }
+    return results;
+}
+
+// Example usage:
+console.log(fizzBuzz(15));
