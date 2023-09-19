@@ -6,7 +6,7 @@
 
 
 // Example 1:
-// Input: jewels = "aA", stones = "aAAbbbb"
+const jewels = "aA", stones = "aAAbbbb"
 // Output: 3
 // Example 2:
 
@@ -29,14 +29,16 @@
     
 // };
 
+
+// same as the vowel counter exercise only difference is that the varible for vowel is already given
 var numJewelsInStones = function(jewels, stones) {
     let count = 0;
-    
+    // stones = the equivalent of vowels
     for (let i = 0; i < stones.length; i++) {
         if (jewels.includes(stones[i])) {
             count++;
         }
     }
-    
+
     return count;
 };
