@@ -11,6 +11,35 @@
 
 let nums = [2, 7, 11, 15, 11, 15, 12, 2, 12, 3, 4, 7, 12, 20];
 let target = 9;
+
+
+const twoSum = function (nums, target) {
+    let newNums = new Map();
+    for (let i = 0; i < nums.length; i++) {
+        let diff = target - nums[i];
+    if(newNums.has(diff)) {
+        return [newNums.get(diff), i]
+    }
+    newNums.set(nums[i], i)        
+    }
+    return []
+}
+
+console.log(twoSum(nums, target))
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 // function leetCodeOne(nums, target) {
 //     const numberMap = new Map();
 // for (let index = 0; index < nums.length; index++) {
@@ -100,16 +129,16 @@ let target = 9;
 // Inside the loop we create conditional statements that will check if the map has the compliment for each number in the array. 
 // if the map contains the compliment we will return it as an arra that contains the compliment and the index of that number.
 // USING ARROW
-const twoSum = (nums, target) => {
-    let numMap = new Map();
-    for (let i = 0; i < nums.length; i++) {
-        const compliment = target - nums[i];
-        if(numMap.has(compliment)) {
-            return [numMap.get(compliment), i]
-        }
-        numMap.set(nums[i], i)
-    }
-    return []
-}
+// const twoSum = (nums, target) => {
+//     let numMap = new Map();
+//     for (let i = 0; i < nums.length; i++) {
+//         const compliment = target - nums[i];
+//         if(numMap.has(compliment)) {
+//             return [numMap.get(compliment), i]
+//         }
+//         numMap.set(nums[i], i)
+//     }
+//     return []
+// }
 
-console.log(twoSum(nums, target))
+// console.log(twoSum(nums, target))
