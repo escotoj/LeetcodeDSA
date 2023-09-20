@@ -21,7 +21,7 @@
 // X++: X is incremented by 1, X =  0 + 1 =  1.
 // Example 2:
 
-// Input: operations = ["++X","++X","X++"]
+const operations = ["++X","++X","X++"]
 // Output: 3
 // Explanation: The operations are performed as follows:
 // Initially, X = 0.
@@ -30,7 +30,7 @@
 // X++: X is incremented by 1, X = 2 + 1 = 3.
 // Example 3:
 
-// Input: operations = ["X++","++X","--X","X--"]
+// const operations = ["X++","++X","--X","X--"]
 // Output: 0
 // Explanation: The operations are performed as follows:
 // Initially, X = 0.
@@ -38,6 +38,34 @@
 // ++X: X is incremented by 1, X = 1 + 1 = 2.
 // --X: X is decremented by 1, X = 2 - 1 = 1.
 // X--: X is decremented by 1, X = 1 - 1 = 0.
+
+// SECOND ATTEMPT 09/20
+// start the function by naming it 
+// create a count variable and have it equal to zero 
+// create a for-loop to go through the length of the array
+// create an if statement that checks for the string in each array using the ||;
+// using an else if statement here 
+const IncrementDec = function(operations) {
+    let count = 0;
+    for (let i = 0; i < operations.length; i++) {
+        // const element = operations[i];
+        if (operations[i] === "X++" || operations[i] === "++X") {
+            count++
+        } else if(operations[i] === "X--" || operations[i] === "--X") {
+            count--
+        }
+    }
+    return count
+
+}
+console.log(IncrementDec(operations))
+
+
+
+
+
+
+
  
 // FIRST ATTEMPT 09/15
 // got stuck on the for-loop
@@ -79,21 +107,21 @@
 // we set up a conditional statement checking for the strings and we set the corresponding operation for that string. we can use the == or === since they are an exact match in data types
 // with the variable we created earlier we apply the ++ or -- to it 
 
-function fizzBuzz(n) {
-    let results = [];
-    for (let i = 1; i <= n; i++) {
-        if (i % 3 === 0 && i % 5 === 0) {
-            results.push("FizzBuzz");
-        } else if (i % 3 === 0) {
-            results.push("Fizz");
-        } else if (i % 5 === 0) {
-            results.push("Buzz");
-        } else {
-            results.push(i);
-        }
-    }
-    return results;
-}
+// function fizzBuzz(n) {
+//     let results = [];
+//     for (let i = 1; i <= n; i++) {
+//         if (i % 3 === 0 && i % 5 === 0) {
+//             results.push("FizzBuzz");
+//         } else if (i % 3 === 0) {
+//             results.push("Fizz");
+//         } else if (i % 5 === 0) {
+//             results.push("Buzz");
+//         } else {
+//             results.push(i);
+//         }
+//     }
+//     return results;
+// }
 
-// Example usage:
-console.log(fizzBuzz(15));
+// // Example usage:
+// console.log(fizzBuzz(15));
