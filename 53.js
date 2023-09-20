@@ -3,7 +3,7 @@
 // subarray with the largest sum, and return its sum.
 
 // Example 1:
-const nums = [-2,1,-3,4,-1,2,1,-5,4]
+// const nums = [-2,1,-3,4,-1,2,1,-5,4]
 // Output: 6
 // Explanation: The subarray [4,-1,2,1] has the largest sum 6.
 // Example 2:
@@ -60,17 +60,54 @@ const nums = [-2,1,-3,4,-1,2,1,-5,4]
 //     return maxSum;
 // };
 
+const nums = [-2,1,-3,4,-1,2,1,-5,4]
 
-var maxSubArray = function(nums) {
+// var maxSubArray = function(nums) {
+//     let maxSum = nums[0];
+//     let currentSum = nums[0];
+//     // console.log(currentSum)
+//     // console.log(maxSum)
+//     for (let i = 1; i < nums.length; i++) {
+//         currentSum = Math.max(nums[i], currentSum + nums[i]);
+//         maxSum = Math.max(maxSum, currentSum)
+//         // console.log('inLoop', currentSum)
+//         console.log(maxSum)
+//     }
+//     // console.log(currentSum)
+//     // console.log(maxSum)
+//     return maxSum;
+// }
+
+// maxSubArray(nums)
+
+
+
+const maxSubArray = function(nums) {
     let maxSum = nums[0];
     let currentSum = nums[0];
     for (let i = 1; i < nums.length; i++) {
-        currentSum = Math.max(nums[i], currentSum + nums[i]);
+        currentSum = Math.max(nums[i], currentSum + nums[i])
         maxSum = Math.max(maxSum, currentSum)
     }
-    console.log(currentSum)
-    console.log(maxSum)
+        console.log(maxSum)
     return maxSum;
 }
 
 maxSubArray(nums)
+
+
+// OTHER SOLUTION SEEN ON LEETCODE 
+// var maxSubArray = function(nums) {
+//     let max = nums[0];
+//     let sum = 0;
+//     for (let i = 0; i < nums.length; i++) {
+//         sum += nums[i];
+//         if (sum > max) {
+//             max = sum;
+//         }
+//         if (sum < 0) {
+//             sum = 0;
+//         }
+//     }
+//     return max;
+// };
