@@ -12,7 +12,7 @@
 
 // Example 1:
 
-// Input: hours = [0,1,2,3,4], target = 2
+// const hours = [0,1,2,3,4], target = 2
 // Output: 3
 // Explanation: The company wants each employee to work for at least 2 hours.
 // - Employee 0 worked for 0 hours and didn't meet the target.
@@ -28,6 +28,19 @@
 // Explanation: The company wants each employee to work for at least 6 hours.
 // There are 0 employees who met the target.
 
+// create a variable that will return the results as a integer
+// create a for-loop that will run through each employee
+//inside the loop there will be an if statement that will check if target contains in the hour array and if it does we will increment result.
+// outside the for loop we return the results 
+
 var numberOfEmployeesWhoMetTarget = function(hours, target) {
-    
+    let results = 0
+    for (let i = 0; i < hours.length; i++) {
+        if(hours[i] >= target ) {
+            results++
+        }
+    }
+    return results
 };
+
+console.log(numberOfEmployeesWhoMetTarget(hours, target))
