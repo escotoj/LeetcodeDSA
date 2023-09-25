@@ -5,7 +5,7 @@
 
 // Example 1:
 
-const  n = 234
+// const  n = 234
 // Output: 15 
 // Explanation: 
 // Product of digits = 2 * 3 * 4 = 24 
@@ -13,7 +13,7 @@ const  n = 234
 // Result = 24 - 9 = 15
 // Example 2:
 
-// Input: n = 4421
+const n = 4421
 // Output: 21
 // Explanation: 
 // Product of digits = 4 * 4 * 2 * 1 = 32 
@@ -21,9 +21,25 @@ const  n = 234
 // Result = 32 - 11 = 21
 
 var subtractProductAndSum = function(n) {
-    let string = n.stringify('')
-    console.log(string)
-    
+    let product = 1
+    let sum = 0
+    let string = n.toString()
+    let splitString = string.split('')
+    console.log('array', splitString)
+    for (let i = 0; i < splitString.length; i++) {
+        const element = splitString[i]++;
+        sum += element
+        product *= element
+
+        console.log(element)
+
+        
+    }  
+    console.log(sum)  
+    console.log(product) 
+    let result = product - sum
+    console.log(result)
+    return result
 };
 
 subtractProductAndSum(n)
