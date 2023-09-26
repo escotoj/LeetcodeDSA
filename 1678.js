@@ -22,26 +22,49 @@ const command = "G()()()()(al)"
 // Output: "Gooooal"
 // Example 3:
 
-// Input: command = "(al)G(al)()()G"
+// const command = "(al)G(al)()()G"
 // Output: "alGalooG"
 
+// var interpret = function(command) {
+//     let word = ''
+//     let split = command.split((/\(\)|\(|\)/))
+//     console.log(split)
+//     for (let i = 0; i < split.length; i++) {
+//         console.log('el', split[i])
+//         if(split[i] === "G") {
+//             word += split[i];
+//         } else if (split[i] === "al") {
+//             word += "al";
+//         } else if (split[i] === '') {
+//             word += 'o'
+//         }
+//     }
+//     console.log(word)
+//     return word
+    
+// };
 var interpret = function(command) {
-    let word = ''
-    let split = command.split('(')
-    console.log(split)
+    // Use regular expression to split the string correctly
+    const split = command.split(/\(\)|\(|\)/);
+    
+    let word = '';
+    
     for (let i = 0; i < split.length; i++) {
-        console.log('el', split[i])
-        if(split[i] === "G") {
-            word += split[i];
-        } else if (split[i] === "al)") {
+        if (split[i] === "G") {
+            word += "G";
+        } else if (split[i] === "al") {
             word += "al";
-        } else if (split[i] === ')') {
-            word += 'o'
+        } else if (split[i] === "") {
+            word += "o";
         }
     }
     console.log(word)
-    return word
-    
-};
-
+    return word;
+}
 interpret(command)
+
+
+
+// var interpret = function(command) {
+//     return command.split("()").join("o").split("(al)").join("al");
+// };
