@@ -17,23 +17,40 @@ const s = "abc", indices = [0,1,2]
 
 // 45 minutes to solve and got stuck at sorting the sArr, it return the array with the proper number order but needed to specify each index for a, b to sort each.
 // also struggles with targting the letters in the sArray index until testing yielded this syntax sArr[j][1]
+// var restoreString = function(s, indices) {
+//         let newS = s.split('')
+//         let sArr = []
+
+//     for (let i = 0; i < indices.length ; i++) {
+//         sArr[i] = [indices[i], newS[i]]
+//     }
+//     sArr.sort((a, b) => a[0] - b[0])
+//     // console.log(sArr)
+
+//     let word = ''
+//     for (let j = 0; j < sArr.length; j++) {
+//         console.log(sArr[j][1]);
+//         word += sArr[j][1]
+//     }
+//      console.log(word)
+//      return word
+// };
+
+// restoreString(s, indices)
+
+
+// second solution on from leetcode using join
 var restoreString = function(s, indices) {
-        let newS = s.split('')
-        let sArr = []
-
-    for (let i = 0; i < indices.length ; i++) {
-        sArr[i] = [indices[i], newS[i]]
+    const res = new Array(indices.length)
+    for (let i = 0; i < indices.length; i++) {
+ 
+        res[indices[i]] = s[i];
+        
     }
-    sArr.sort((a, b) => a[0] - b[0])
-    // console.log(sArr)
-
-    let word = ''
-    for (let j = 0; j < sArr.length; j++) {
-        console.log(sArr[j][1]);
-        word += sArr[j][1]
-    }
-     console.log(word)
-     return word
-};
+       
+       let ans = res.join('')
+       console.log(ans)
+       return ans
+}
 
 restoreString(s, indices)
