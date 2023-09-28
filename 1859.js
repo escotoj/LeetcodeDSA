@@ -136,5 +136,7 @@ var sortSentence = function(s) {
     return result
 };
 
+
+
 const output = sortSentence(s);
 console.log(output);
