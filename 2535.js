@@ -25,6 +25,8 @@ const nums = [1,2,3,4]
 // The digit sum of nums is 1 + 2 + 3 + 4 = 10.
 // The absolute difference between the element sum and digit sum is |10 - 10| = 0.
 
+//parseInt() is used to turn a string into a number. every solution uses it.
+// first try, using parseInt() under 20 minutes 09/30
 var differenceOfSum = function(nums) {
     let sum1 = 0
     let sum2arr = []
@@ -39,7 +41,7 @@ var differenceOfSum = function(nums) {
         sum2arr.push(element2)        
     }
     console.log(sum2arr)
-    let newArr = sum2arr.join(',').split(',')
+    let newArr = sum2arr.join(',').split(',');
     for (let index = 0; index < newArr.length; index++) {
         const element3 = parseInt(newArr[index]);
         // console.log(element3)
@@ -51,3 +53,10 @@ var differenceOfSum = function(nums) {
     
 };
 differenceOfSum(nums)
+
+// ONE LINE solution using reduce
+// var differenceOfSum = function(nums) {
+//     const sum1 = nums.reduce((prev, curr) => prev + curr);
+//     const sum2 = nums.join('').split('').reduce((prev, curr) => parseInt(prev) + parseInt(curr));
+//   return sum1 - sum2;
+// };
