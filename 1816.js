@@ -27,6 +27,8 @@ const s = "What is the solution to this problem", k = 4
 // Input: s = "chopper is not a tanuki", k = 5
 // Output: "chopper is not a tanuki"
 
+// SOLUTION first try 09/29 under 20 minutes
+// not the best time complexity or speed
 var truncateSentence = function(s, k) {
     let arr2 = []
     let arr = s.split(" ")
@@ -42,3 +44,9 @@ var truncateSentence = function(s, k) {
 };
 
 truncateSentence(s, k)
+
+
+// ONE LINE SOLUTION FROM LEETCODE
+// var truncateSentence = function(s, k) {
+//     return s.split(" ").splice(0, k).join(" ");
+// };
