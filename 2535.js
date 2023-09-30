@@ -10,7 +10,7 @@
 
 // Example 1:
 
-// Input: nums = [1,15,6,3]
+// const nums = [1,15,6,3]
 // Output: 9
 // Explanation: 
 // The element sum of nums is 1 + 15 + 6 + 3 = 25.
@@ -18,7 +18,7 @@
 // The absolute difference between the element sum and digit sum is |25 - 16| = 9.
 // Example 2:
 
-// Input: nums = [1,2,3,4]
+const nums = [1,2,3,4]
 // Output: 0
 // Explanation:
 // The element sum of nums is 1 + 2 + 3 + 4 = 10.
@@ -26,5 +26,28 @@
 // The absolute difference between the element sum and digit sum is |10 - 10| = 0.
 
 var differenceOfSum = function(nums) {
+    let sum1 = 0
+    let sum2arr = []
+    let sum2 = 0
+    for (let i = 0; i < nums.length; i++) {
+        sum1 += nums[i]
+    }
+    // console.log(sum1)
+
+    for (let j = 0; j < nums.length; j++) {
+        const element2 = nums[j].toString().split('');
+        sum2arr.push(element2)        
+    }
+    console.log(sum2arr)
+    let newArr = sum2arr.join(',').split(',')
+    for (let index = 0; index < newArr.length; index++) {
+        const element3 = parseInt(newArr[index]);
+        // console.log(element3)
+        sum2 += element3
+        
+    }
+    console.log(sum1 - sum2)
+    return sum1 - sum2 
     
 };
+differenceOfSum(nums)
