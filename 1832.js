@@ -14,7 +14,7 @@ const sentence = "thequickbrownfoxjumpsoverthelazydog"
 
 // const sentence = "anmt"
 // Output: false
-// SOLUTION stuck at return false and true, 
+// SOLUTION stuck at return false and true, 10/01
 var checkIfPangram = function(sentence) {
     let abc = 'abcdefghijklmnopqrstuvwxyz'
     for (let i = 0; i < abc.length; i++) {
