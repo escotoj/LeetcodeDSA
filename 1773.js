@@ -40,3 +40,19 @@ var countMatches = function(items, ruleKey, ruleValue) {
 };
 
 countMatches(items, ruleKey, ruleValue)
+
+// Runtime
+// Details
+// 72ms
+// Beats 19.48%of users with JavaScript
+// Memory
+// Details
+// 45.98MB
+// Beats 51.35%of users with JavaScript
+
+
+// OTHER SOLUTION using for each
+// var countMatches = function (items, ruleKey, ruleValue) {
+//     let ruleKeys = ["type", "color", "name"];
+//     return items.filter(e =>e[ruleKeys.indexOf(ruleKey)] === ruleValue ).length;
+//   };
