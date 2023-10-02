@@ -42,3 +42,12 @@ var isAcronym = function(words, s) {
 };
 
 isAcronym(words, s)
+
+// Runtime
+// Details
+// 78ms
+// Beats 21.23%of users with JavaScript
+// Memory
+// Details
+// 44.84MB
+// Beats 50.57%of users with JavaScript
