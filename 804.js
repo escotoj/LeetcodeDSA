@@ -17,7 +17,7 @@
 
 // Example 1:
 
-// Input: words = ["gin","zen","gig","msg"]
+const words = ["gin","zen","gig","msg"]
 // Output: 2
 // Explanation: The transformation of each word is:
 // "gin" -> "--...-."
@@ -34,5 +34,15 @@
 var uniqueMorseRepresentations = function(words) {
     let alpha = 'abcdefghijklmnopqrstuvwxyz'
     let morse = [".-","-...","-.-.","-..",".","..-.","--.","....","..",".---","-.-",".-..","--","-.","---",".--.","--.-",".-.","...","-","..-","...-",".--","-..-","-.--","--.."]
+    let arr = []
+    for (let i = 0; i < alpha.length; i++) {
+        const element = alpha[i];
+        arr.push(element)
+        
+    }
+    // console.log(arr)
+    let map = [arr, morse]
+    console.log(map)
     
 };
+uniqueMorseRepresentations(words)
