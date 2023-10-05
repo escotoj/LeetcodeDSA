@@ -25,16 +25,15 @@ const key = "the quick brown fox jumps over the lazy dog",
 // It is obtained by taking the first appearance of each letter in "eljuxhpwnyrdgtqkviszcfmabo".
 
 var decodeMessage = function (key, message) {
-  let newKey = new Set(key);
+//   let newKey = new Set(key);
   let index = 0;
   let map = {};
-  // console.log(alpha)
   let alpha = 'abcdefghijklmnopqrstuvwxyz';
   
-  for (let i = 0; i < alpha.length; i++) {
-    let letter = alpha[i];
-    if (newKey.has(letter)) {
-      map[letter] = key[index++];
+  for (let i = 0; i < key.length; i++) {
+    let letter = key[i];
+    if (alpha.includes(letter) && !map[letter]) {
+      map[letter] = alpha[index++];
     }
   }
   console.log(map);
@@ -46,7 +45,6 @@ var decodeMessage = function (key, message) {
     } else if (map[char]) {
       decoded += map[char];
     }
-    index = (index + 1) % key.length;
   }
   console.log(decoded);
 };
