@@ -13,11 +13,9 @@
 // For example, "cab" can be written as "-.-..--...", which is the concatenation of "-.-.", ".-", and "-...". We will call such a concatenation the transformation of a word.
 // Return the number of different transformations among all words we have.
 
- 
-
 // Example 1:
 
-const words = ["gin","zen","gig","msg"]
+// const words = ["gin", "zen", "gig", "msg"];
 // Output: 2
 // Explanation: The transformation of each word is:
 // "gin" -> "--...-."
@@ -27,22 +25,60 @@ const words = ["gin","zen","gig","msg"]
 // There are 2 different transformations: "--...-." and "--...--.".
 // Example 2:
 
-// Input: words = ["a"]
+const words = ["a"]
 // Output: 1
- 
 
-var uniqueMorseRepresentations = function(words) {
-    let alpha = 'abcdefghijklmnopqrstuvwxyz'
-    let morse = [".-","-...","-.-.","-..",".","..-.","--.","....","..",".---","-.-",".-..","--","-.","---",".--.","--.-",".-.","...","-","..-","...-",".--","-..-","-.--","--.."]
-    let arr = []
-    for (let i = 0; i < alpha.length; i++) {
-        const element = alpha[i];
-        arr.push(element)
-        
+// stuck on the map part, used gpt to assist with logic using only for-loops. 
+// it made use of an obkect to match key value pairs, and used ne Set() to identify unique values (built in JS function)
+var uniqueMorseRepresentations = function (words) {
+  let alpha = "abcdefghijklmnopqrstuvwxyz";
+  let morse = [
+    ".-",
+    "-...",
+    "-.-.",
+    "-..",
+    ".",
+    "..-.",
+    "--.",
+    "....",
+    "..",
+    ".---",
+    "-.-",
+    ".-..",
+    "--",
+    "-.",
+    "---",
+    ".--.",
+    "--.-",
+    ".-.",
+    "...",
+    "-",
+    "..-",
+    "...-",
+    ".--",
+    "-..-",
+    "-.--",
+    "--..",
+  ];
+
+  let arr = {};
+
+  for (let i = 0; i < alpha.length; i++) {
+    arr[alpha[i]] = morse[i];
+  }
+  // let map = [arr, morse]
+  console.log(arr);
+  let numTrans = new Set() 
+
+  for (let i = 0; i < words.length; i++) {
+    const element = words[i];
+    let trans =  ''
+    for (let j = 0; j < element.length; j++) {
+        trans += arr[element[j]];
     }
-    // console.log(arr)
-    let map = [arr, morse]
-    console.log(map)
-    
+    console.log(trans);
+numTrans.add(trans)
+  }
+  console.log(numTrans.size)
 };
-uniqueMorseRepresentations(words)
+uniqueMorseRepresentations(words);
