@@ -44,3 +44,10 @@ var maximum69Number  = function(num) {
 };
 
 maximum69Number(num)
+
+
+
+// Solution using replace
+// var maximum69Number  = function(num) {
+//     return +num.toString().replace('6','9');
+// };
