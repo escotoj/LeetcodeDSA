@@ -25,7 +25,7 @@
 // Therefore, we return "rtsng".
 // Example 2:
 
-// Input: s = "poiinter"
+let s = "poiinter"
 // Output: "ponter"
 // Explanation: 
 // After the first character, the text on the screen is "p".
@@ -39,5 +39,22 @@
 // Therefore, we return "ponter".
 
 var finalString = function(s) {
-    
+    let result = [];
+    let reversed = false;
+
+    for (let i = 0; i < s.length; i++) {
+        if (s[i] === 'i') {
+            reversed = !reversed; // Toggle the reversal state
+        } else {
+            if (reversed) {
+                result.unshift(s[i]); // Add the character to the beginning
+            } else {
+                result.push(s[i]); // Add the character to the end
+            }
+        }
+    }
+console.log(result.join(''))
+    return result.join('');
 };
+
+finalString(s)
