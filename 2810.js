@@ -13,7 +13,7 @@
 
 // Example 1:
 
-// Input: s = "string"
+const s = "string"
 // Output: "rtsng"
 // Explanation: 
 // After typing first character, the text on the screen is "s".
@@ -25,7 +25,7 @@
 // Therefore, we return "rtsng".
 // Example 2:
 
-let s = "poiinter"
+// let s = "poiinter"
 // Output: "ponter"
 // Explanation: 
 // After the first character, the text on the screen is "p".
@@ -38,23 +38,80 @@ let s = "poiinter"
 // After the eighth character, the text is "ponter". 
 // Therefore, we return "ponter".
 
+// var finalString = function(s) {
+//     let result = [];
+//     let stack = [];
+
+//     for (let i = 0; i < s.length; i++) {
+//         if (s[i] === 'i') {
+//             // Reverse the text by popping characters from the stack
+//             while (stack.length > 0) {
+//                 result.push(stack.pop());
+//             }
+//         }
+//         stack.push(s[i]);
+//     }
+//     console.log(stack)
+
+//     while (stack.length > 0) {
+//         result.push(stack.pop());
+//     }
+// console.log(result.join(''))
+//     return result.join('');
+// };
+
+// twodays to figure out plus gtp help 
+// EXPLANATION
+// Initialize an empty array result to store the characters of the final string, and set the rev flag to false. The rev flag indicates whether the string should be reversed.
+
+// Loop through the input string s character by character.
+
+// If the current character s[i] is 'i', toggle the rev flag. This means that if the flag was false, it becomes true, and vice versa. This is done to handle the reversal behavior when 'i' is encountered.
+
+// If the current character is not 'i', check the value of the rev flag:
+
+// If rev is true, it means we should reverse the string. So, unshift (add to the beginning) the current character to the result array using result.unshift(s[i]).
+// If rev is false, it means we should keep the characters in the original order. In this case, push (add to the end) the current character to the result array using result.push(s[i]).
+// Continue this process for all characters in the input string.
+
+// After processing all characters, check the rev flag again:
+
+// If rev is true, it means the string should be reversed. In this case, reverse the result array using result.reverse().
+// Finally, join the characters in the result array into a single string using result.join('') and return it as the final result.
+
+
 var finalString = function(s) {
     let result = [];
-    let reversed = false;
-
-    for (let i = 0; i < s.length; i++) {
-        if (s[i] === 'i') {
-            reversed = !reversed; // Toggle the reversal state
+    let rev = false;
+    for(let i = 0; i< s.length; i++) {
+        if(s[i] === 'i') {
+            rev = !rev;
         } else {
-            if (reversed) {
-                result.unshift(s[i]); // Add the character to the beginning
+            if (rev) {
+                result.unshift(s[i])
             } else {
-                result.push(s[i]); // Add the character to the end
+                result.push(s[i])
             }
         }
     }
-console.log(result.join(''))
-    return result.join('');
+    return rev ? result.reverse().join('') : result.join('');
 };
 
-finalString(s)
+console.log(finalString(s)); 
+
+
+
+// ANSWER FROM LEETCODE 
+// function finalString(s) {
+//     const finalStr = [];
+  
+//     for (let i = 0; i < s.length; i++) {
+//       if (s[i] === "i") {
+//         finalStr.reverse();
+//         continue;
+//       }
+//       finalStr.push(s[i]);
+//     }
+//     return finalStr.join("");
+//   }
+// finalString(s)
