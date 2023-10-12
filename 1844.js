@@ -24,7 +24,7 @@
 // - s[5] -> shift('e',1) = 'f'
 // Example 2:
 
-// Input: s = "a1b2c3d4e"
+const s = "a1b2c3d4e"
 // Output: "abbdcfdhe"
 // Explanation: The digits are replaced as follows:
 // - s[1] -> shift('a',1) = 'b'
@@ -33,5 +33,6 @@
 // - s[7] -> shift('d',4) = 'h'
  
 var replaceDigits = function(s) {
+
     
 };
