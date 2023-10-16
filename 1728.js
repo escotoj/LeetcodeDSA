@@ -24,3 +24,7 @@
 // Input: nums = [1,2,3,4,5]
 // Output: 15
 // Explanation: The unique elements are [1,2,3,4,5], and the sum is 15.
+
+var sumOfUnique = function(nums) {
+    
+};
