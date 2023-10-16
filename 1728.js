@@ -11,7 +11,7 @@
 
 // Example 1:
 
-// Input: nums = [1,2,3,2]
+nums = [1,2,3,2]
 // Output: 4
 // Explanation: The unique elements are [1,3], and the sum is 4.
 // Example 2:
@@ -25,6 +25,22 @@
 // Output: 15
 // Explanation: The unique elements are [1,2,3,4,5], and the sum is 15.
 
-var sumOfUnique = function(nums) {
-    
+var sumOfUnique = function (nums) {
+    let sum = 0
+    let numsMap = {}
+    for (let i = 0; i < nums.length; i++) {
+        let digit = nums[i]
+        numsMap[digit] = (numsMap[digit] || 0) + 1
+    }
+
+    for (let i = 0; i < nums.length; i++) {
+        let digit = nums[i]
+        if (numsMap[digit] === 1) {
+            sum += digit;
+        }
+
+    }
+return sum
 };
+
+sumOfUnique(nums)
