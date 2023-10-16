@@ -43,4 +43,30 @@ var sumOfUnique = function (nums) {
 return sum
 };
 
+// EXPLANATION 
+
+// The sumOfUnique function works by counting the occurrences of each number in the nums array and then summing up the unique elements.
+
+// Here's a step-by-step explanation:
+
+// let sum = 0; initializes a variable sum to store the sum of unique elements, setting it to 0 initially.
+
+// let numCounts = {}; creates an empty object called numCounts to store the counts of each number in the array. The keys of this object will be the numbers, and the values will be their counts.
+
+// The first for loop iterates through the nums array using for (let i = 0; i < nums.length; i++). In this loop:
+
+// const num = nums[i]; extracts the current number from the array.
+
+// numCounts[num] = (numCounts[num] || 0) + 1; increments the count of the current number in the numCounts object. If the number doesn't exist in numCounts, it initializes the count to 0 and then increments it by 1.
+
+// The second for loop iterates through the nums array again. This loop is used to determine unique elements and add their values to the sum. In this loop:
+
+// const num = nums[i]; extracts the current number from the array.
+
+// if (numCounts[num] === 1) checks if the count of the current number in numCounts is equal to 1. If it's equal to 1, it means the number is unique.
+
+// If the number is unique, sum += num; adds the unique number to the sum variable.
+
+// Finally, console.log(sum); prints the sum of unique elements to the console.
+
 sumOfUnique(nums)
