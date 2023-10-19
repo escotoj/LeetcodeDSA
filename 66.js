@@ -46,13 +46,18 @@
 
 
 let digits = [6,1,4,5,3,9,0,1,9,5,1,8,6,7,0,5,5,4,3]
-let one = ''
 var plusOne = function(digits) {
-    for (let i = 0; i < digits.length; i++) {
-        const element = digits[i];
-        one += element
-    }
-    console.log(Number(one))
-};
+    let one = ''
+       for (let i = 0; i < digits.length; i++) {
+          const element = digits[i];
+          one += element
+      }
+      let big = BigInt(one)
+      let add = String(big + 1n)
+      console.log(add)
+      const res =  Array.from(String(add), Number);
+      return res
+      
+  };
 
 plusOne(digits)
