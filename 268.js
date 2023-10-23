@@ -23,6 +23,28 @@
 // Output: 8
 // Explanation: n = 9 since there are 9 numbers, so all numbers are in the range [0,9]. 8 is the missing number in the range since it does not appear in nums.
  
+
+
 var missingNumber = function(nums) {
+    const n = nums.length;
     
+    // Calculate the sum of the first n natural numbers
+    const expectedSum = (n * (n + 1)) / 2;
+    
+    // Calculate the sum of the elements in the array
+    const actualSum = nums.reduce((acc, num) => acc + num, 0);
+    
+    // The missing number is the difference between the expected and actual sums
+    return expectedSum - actualSum;
 };
+
+
+// LEETCODE ANSWER
+// var missingNumber = function (nums) {
+//     var sum = 0;
+//     for (let i = 0; i < nums.length; i++) {
+//       sum += i + 1 - nums[i];
+//     }
+  
+//     return sum;
+//   };
