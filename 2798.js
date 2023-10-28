@@ -44,3 +44,37 @@ var numberOfEmployeesWhoMetTarget = function(hours, target) {
 };
 
 console.log(numberOfEmployeesWhoMetTarget(hours, target))
+
+
+
+// FOR-EACH SOLUTION 
+// rather than doing a full loop and check for [i] we check by el which is [i]
+
+// var numberOfEmployeesWhoMetTarget = function (hours, target) {
+//     let count = 0;
+//     hours.forEach(ele => {
+//         if (ele >= target) {
+//             count++;
+//         }
+//     })
+//     return count;
+// };
+
+// ONE LINE SOLUTION USING THE FILTER FUNCTION 
+// var numberOfEmployeesWhoMetTarget = function(hours, target) {
+//     return hours.filter(i => i >= target).length
+// };
+
+
+// Using the filter Method:
+
+// The core of this function is the use of the filter method on the hours array.
+// Filtering Employees Who Met the Target:
+
+// The filter method is applied to the hours array, and a callback function is provided: i => i >= target. This callback function checks whether each element i (which represents the number of hours worked by an employee) is greater than or equal to the specified target. If this condition is met, the employee's hours are considered to have met the target, and they are included in the filtered result.
+// Filtered Array:
+
+// The filter method returns a new array containing only the elements that satisfy the condition (i >= target). This new array contains the hours worked by employees who met or exceeded the target.
+// Determining the Number of Employees:
+
+// Finally, the length property is used to determine the number of employees who met the target. This length corresponds to the number of elements in the filtered array, and it directly represents the count of employees who worked at least the target number of hours.
