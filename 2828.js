@@ -51,3 +51,14 @@ isAcronym(words, s)
 // Details
 // 44.84MB
 // Beats 50.57%of users with JavaScript
+
+// ONE LINE LEETCODE ANSWER
+// var isAcronym = function (words, s) {
+//     return s === words.map((str) => str[0]).join("")
+//   }
+
+// It first uses the map method to iterate over each element (a string) in the words array. Inside the map function, it takes the first character of each string by accessing str[0]. This effectively extracts the first letter of each word in the array.
+
+// The map function returns an array of the first letters of each word.
+
+// The join method is then used to concatenate these first letters into a single string. This string is stored in the variable s.
