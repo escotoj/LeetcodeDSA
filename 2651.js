@@ -39,3 +39,9 @@ var findDelayedArrivalTime = function(arrivalTime, delayedTime) {
 //     let time = arrivalTime + delayedTime
 //     return time >= 24 ? time - 24 : time
 // };
+
+// Elminates the use of if statements
+// ONE LINE SOLUTION
+// var findDelayedArrivalTime = function (arrivalTime, delayedTime) {
+//     return (arrivalTime + delayedTime) % 24;
+// };
