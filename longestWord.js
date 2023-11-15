@@ -24,8 +24,8 @@ const sen = "fun&!! time"
   
 //     return longestWord;
 //   }
-  
-
+// When a non-alphabetic character is encountered, it signifies the end of the current word. If the length of the currentWord is greater than the length of the longestWord encountered so far, it updates longestWord with the content of currentWord. Then, currentWord is reset to an empty string to start forming a new word.
+// After the loop completes, it checks if the last word (if any) is longer than the previously recorded longestWord. If so, it updates longestWord accordingly.
   
 // USINg TWO Loops
 function LongestWord(sen) {
