@@ -11,6 +11,18 @@
 let nums = [2, 7, 11, 15, 11, 15, 12, 2, 12, 3, 4, 7, 12, 20];
 let target = 9;
 
+function leetCodeOne(nums, target) {
+for (let i = 0; i < nums.length; i++) {
+  nums[i]
+  for (let j = i + 1; j < nums.length; j++) {
+    if (nums[j] + nums[i] === target) {
+      return [[j], [i]]
+    } 
+  }
+}
+}
+
+
 // const twoSum = function (nums, target) {
 //     let newNums = new Map();
 //     for (let i = 0; i < nums.length; i++) {
@@ -83,3 +95,9 @@ var twoSum = function (nums, target) {
 };
 
 console.log(twoSum(nums, target));
+// for (let j = i + 1; j < nums.length; j++) {: This is the inner loop that iterates through the elements starting from the index immediately after the current i. This ensures that the same element is not used twice in a pair.
+
+//   console.log("second loop", nums[j]);: This line prints the current element at index j during each iteration of the inner loop.
+//   if (nums[i] + nums[j] == target) {: Inside the inner loop, this condition checks if the sum of the numbers at indices i and j is equal to the target.
+  
+//   return [i, j];: If the condition is true, the function immediately returns an array containing the indices i and j, indicating the positions of the two numbers whose sum equals the target.
