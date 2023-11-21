@@ -1,6 +1,6 @@
 // 13. Roman to Integer
+// ***** Given a roman numeral, convert it to an integer.*****
 
-// Companies
 // Roman numerals are represented by seven different symbols: I, V, X, L, C, D and M.
 
 // Symbol       Value
@@ -18,7 +18,8 @@
 // I can be placed before V (5) and X (10) to make 4 and 9.
 // X can be placed before L (50) and C (100) to make 40 and 90.
 // C can be placed before D (500) and M (1000) to make 400 and 900.
-// Given a roman numeral, convert it to an integer.
+
+
 
 // Example 1:
 
@@ -36,24 +37,24 @@
 // Output: 1994
 // Explanation: M = 1000, CM = 900, XC = 90 and IV = 4.
 
-var romanToInt = function (s) {
-  symbols = {
-    I: 1,
-    V: 5,
-    X: 10,
-    L: 50,
-    C: 100,
-    D: 500,
-    M: 1000,
-  };
-  value = 0;
-  for (let i = 0; i < s.length; i += 1) {
-    symbols[s[i]] < symbols[s[i + 1]]
-      ? (value -= symbols[s[i]])
-      : (value += symbols[s[i]]);
-  }
-  return value;
-};
+// var romanToInt = function (s) {
+//   symbols = {
+//     I: 1,
+//     V: 5,
+//     X: 10,
+//     L: 50,
+//     C: 100,
+//     D: 500,
+//     M: 1000,
+//   };
+//   value = 0;
+//   for (let i = 0; i < s.length; i += 1) {
+//     symbols[s[i]] < symbols[s[i + 1]]
+//       ? (value -= symbols[s[i]])
+//       : (value += symbols[s[i]]);
+//   }
+//   return value;
+// };
 
 
 // The symbols object is defined to map each Roman numeral character to its corresponding integer value. This mapping is essential for converting Roman numerals to integers.
@@ -73,3 +74,40 @@ var romanToInt = function (s) {
 // Finally, the function returns the accumulated value, which is the integer equivalent of the Roman numeral.
 
 // This solution works efficiently by handling both regular cases (e.g., III, VI, XII) and subtraction cases (e.g., IV, IX, XL, etc.) in a single pass through the Roman numeral string. It leverages the mapping provided by the symbols object to determine the integer values associated with each Roman numeral character and applies the appropriate logic to calculate the total value.
+
+
+
+var romanToInt = function (s) {
+  symbols = {
+    I: 1,
+    V: 5,
+    X: 10,
+    L: 50,
+    C: 100,
+    D: 500,
+    M: 1000,
+  };
+  let value = 0;
+
+  for (let i = 0; i < s.length; i += 1) {
+    if (symbols[s[i]] < symbols[s[i + 1]]) {
+      value -= symbols[s[i]];
+    } else {
+      value += symbols[s[i]];
+    }
+  }
+
+  return value;
+};
+
+
+// i += 1: Increments the loop counter i by 1 after each iteration.
+
+// symbols[s[i]] < symbols[s[i + 1]]: This is the condition inside the loop. It checks if the numeric value of the current Roman numeral symbol (s[i]) is less than the numeric value of the next symbol (s[i + 1]). If true, it means the current symbol should be subtracted.
+
+// If the condition symbols[s[i]] < symbols[s[i + 1]] is true:
+
+// value -= symbols[s[i]];: Subtracts the numeric value of the current symbol from the value.
+// If the condition is false:
+
+// value += symbols[s[i]];: Adds the numeric value of the current symbol to the value.
