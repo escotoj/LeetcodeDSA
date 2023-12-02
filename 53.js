@@ -111,3 +111,17 @@ maxSubArray(nums)
 //     }
 //     return max;
 // };
+
+// Initialization:
+
+// maxValue: Represents the maximum sum found so far. It is initially set to the first element of the array (nums[0]).
+// currentValue: Represents the maximum sum ending at the current position. It is also initialized with the first element (nums[0]).
+// Loop Through Array:
+
+// The loop starts from the second element (i = 1) because the initial values are set for the first element.
+// For each element in the array, the function updates currentValue and maxValue based on the current element's value and the maximum sum ending at the previous position.
+// The updated currentValue is calculated using Math.max(nums[i], currentValue + nums[i]). This expression compares the current element with the sum of the previous maximum subarray ending at i - 1 and the current element. It effectively decides whether to start a new subarray at the current position or extend the existing one.
+// The updated maxValue is then calculated using Math.max(currentValue, maxValue). This ensures that maxValue always holds the overall maximum subarray sum encountered so far.
+// Return Result:
+
+// After iterating through the entire array, the function returns the final maxValue, which represents the maximum sum of a contiguous subarray within the given array.
