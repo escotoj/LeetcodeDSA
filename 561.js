@@ -41,3 +41,30 @@ var arrayPairSum = nums => {
 // Checking if the index is even: The if (i % 2 === 0) condition checks if the current index i is even.
 
 // Summing the even-indexed elements: If the index is even, the code inside the if statement (sum += nums[i];) adds the current element to the sum. Since the array is sorted, the even-indexed elements correspond to the smaller values in each pair.
+
+
+
+// USING Math.MIN
+var arrayPairSum = function(nums) {
+    // Step 1: Sort the array in ascending order
+    nums.sort((a, b) => a - b);
+
+    // For debugging purposes, print the sorted array
+    console.log(nums);
+
+    // Step 2: Initialize the sum variable to 0
+    let sum = 0;
+
+    // Step 3: Iterate through the sorted array by pairs
+    for (let i = 0; i < nums.length; i += 2) {
+        // Step 4: Use Math.min to get the minimum value in each pair
+        sum += Math.min(nums[i], nums[i + 1]);
+    }
+
+    // Step 5: Return the final sum
+    return sum;
+};
+
+// Iterating through the sorted array by pairs: The for loop now increments i by 2 in each iteration to process the array in pairs.
+
+// Using Math.min: The line sum += Math.min(nums[i], nums[i + 1]); uses Math.min to find the minimum value in each pair and adds it to the sum.
