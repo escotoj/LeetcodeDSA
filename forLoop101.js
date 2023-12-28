@@ -1,4 +1,4 @@
-// * Basic Incrementing Loop:
+// * Basic Incrementing Loop 101:
 
 // for (let i = 0; i < 5; i++) {
 //   console.log(i);

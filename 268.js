@@ -48,3 +48,40 @@ var missingNumber = function(nums) {
   
 //     return sum;
 //   };
+
+
+
+
+// SECONd Attempt using state and a decremeting loop
+var missingNumber = function (nums) {
+    //     let s = nums.sort((a, b) => b - a)
+    //     for (let i = s[0]; i >= 0; i--) {
+    //         console.log(i)
+    // for(let j = 0; i < nums.length; i++) {
+    //             if (i !== nums[i]) {
+    //             return i
+    //         } 
+    // }
+    //     }
+    //     return s[0] + 1
+    
+        let s = nums.sort((a, b) => b - a);
+    
+        for (let i = s[0]; i >= 0; i--) {
+            let found = false;
+    
+            for (let j = 0; j < nums.length; j++) {
+                if (i === nums[j]) {
+                    found = true;
+                    break;
+                }
+            }
+    
+            if (!found) {
+                return i;
+            }
+        }
+    
+        return s[0] + 1;
+    
+    };
