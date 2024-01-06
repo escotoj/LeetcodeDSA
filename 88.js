@@ -43,3 +43,34 @@ var merge = function(nums1, m, nums2, n) {
 // In each iteration of the loop, the value at the current index j in nums2 is assigned to the index i in nums1. This effectively adds the element from nums2 to the end of nums1.
 
 // After the loop completes, the function sorts the entire nums1 array using the sort method with a comparator function (a, b) => a - b. This ensures that the merged array is in ascending order.
+
+
+// Attempt number 2 01/05
+var merge = function(nums1, m, nums2, n) {
+    let l = [];
+    for (let i = 0; i < m; i++) {
+        l.push(nums1[i]);
+    }
+
+    let y = [];
+    for (let i = 0; i < n; i++) {
+        y.push(nums2[i]);
+    }
+
+    nums1.length = 0; 
+
+    nums1.push(...l, ...y)
+    nums1.sort((a,b) => a - b); 
+};
+
+// Copy Elements from nums1 and nums2 to Temporary Arrays (l and y):
+
+// The code uses two separate loops to copy the first m elements from nums1 to the array l and the first n elements from nums2 to the array y.
+// Clear nums1:
+
+// nums1.length = 0; clears the existing elements in nums1.
+// Concatenate Arrays and Sort nums1:
+
+// nums1.push(...l, ...y); uses the spread operator to concatenate the arrays l and y into nums1.
+// nums1.sort((a, b) => a - b); sorts the merged array nums1 in non-decreasing order.
+// This approach essentially combines elements from nums1 and nums2 into a temporary array, clears nums1, and then pushes the sorted merged elements back into nums1. While this works, it's worth noting that sorting the entire array may not be the most efficient approach, especially when both nums1 and nums2 are already sorted.
