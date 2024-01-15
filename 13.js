@@ -89,7 +89,7 @@ var romanToInt = function (s) {
   };
   let value = 0;
 
-  for (let i = 0; i < s.length; i += 1) {
+  for (let i = 0; i < s.length; i ++) {
     if (symbols[s[i]] < symbols[s[i + 1]]) {
       value -= symbols[s[i]];
     } else {
@@ -101,7 +101,7 @@ var romanToInt = function (s) {
 };
 
 
-// i += 1: Increments the loop counter i by 1 after each iteration.
+// i += 1: Increments the loop counter i by 1 after each iteration. same thing as i++
 
 // symbols[s[i]] < symbols[s[i + 1]]: This is the condition inside the loop. It checks if the numeric value of the current Roman numeral symbol (s[i]) is less than the numeric value of the next symbol (s[i + 1]). If true, it means the current symbol should be subtracted.
 
@@ -111,3 +111,24 @@ var romanToInt = function (s) {
 // If the condition is false:
 
 // value += symbols[s[i]];: Adds the numeric value of the current symbol to the value.
+
+// USING MAP instead of OBJECT, but in this case using object is much simpler 
+var romanToInt = function(s) {
+  let key = new Map();
+  // Map uses .get, and .set in this solution
+  let letters = ['I', 'V', 'X', 'L', 'C', 'D', 'M']
+  let numbers = [1,5,10,50, 100, 500,1000]
+  for(let i = 0; i < letters.length; i++) {
+      key.set(letters[i], numbers[i])
+  }
+let res = 0
+for(let i = 0; i < s.length; i++) {
+  if(key.get(s[i]) < key.get(s[i + 1])) {
+      res -= key.get(s[i])
+      console.log(key.get(s[i]))
+  } else {
+      res += key.get(s[i])
+  }
+}
+return res
+};
