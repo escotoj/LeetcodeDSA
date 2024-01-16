@@ -23,17 +23,26 @@ for (let i = 0; i < nums.length; i++) {
 }
 
 
-// const twoSum = function (nums, target) {
-//     let newNums = new Map();
-//     for (let i = 0; i < nums.length; i++) {
-//         let diff = target - nums[i];
-//     if(newNums.has(diff)) {
-//         return [newNums.get(diff), i]
-//     }
-//     newNums.set(nums[i], i)
-//     }
-//     return []
-// }
+//0(n) using Map has the best logic, uses less space and time than the solution that uses two loops. 
+
+const twoSum = function (nums, target) {
+    let newNums = new Map();
+    // the newNums variable is an object that will store the numbers in key-value pair form
+    for (let i = 0; i < nums.length; i++) {
+      // since the loop is going through each number one by one it will be checking for the diff and then running the if statement. 
+        let diff = target - nums[i];
+        // the diff variable is used to find the two numbers whose difference adds up to the target. 
+    if(newNums.has(diff)) {
+        return [newNums.get(diff), i]
+           // after the first loop, newNums is no longer empty and contains the first number in the index so it checks against that therefore returning the answer as soon as it is found. 
+
+    }
+    newNums.set(nums[i], i)
+ 
+    // since newNums is empty, it will add the first number in the array everytime before it goes to the next number in the array to run the loop. 
+    }
+    return []
+}
 
 // console.log(twoSum(nums, target))
 
