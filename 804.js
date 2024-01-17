@@ -131,3 +131,45 @@ uniqueMorseRepresentations(words);
   
 //     return morseSet.size;
 //   };
+
+
+//solution using new Map() but also uses new Set()
+
+var uniqueMorseRepresentations = function(words) {
+  let alpha = 'abcdefghijklmnopqrstuvwxyz';
+  let morse = [".-", "-...", "-.-.", "-..", ".", "..-.", "--.", "....", "..", ".---", "-.-", ".-..", "--", "-.", "---", ".--.", "--.-", ".-.", "...", "-", "..-", "...-", ".--", "-..-", "-.--", "--.."];
+  let map = new Map();
+  //we use map to create and object so that letters correspond with the appropriate code in a key-value pair 
+  let decoded = [];
+  // where we will push the words in morse code format to later count for the final answer 
+
+  for (let i = 0; i < alpha.length; i++) {
+      map.set(alpha[i], morse[i]);
+      // we loop in order to set the letters with with the code
+  }
+
+  for (let i = 0; i < words.length; i++) {
+    // we set up to begin decoding by breaking down the words in the 'words' array
+      let s = words[i].split('');
+      // we target each word and than we turn each work into an array by separating each character
+      let decWord = '';
+      for (let j = 0; j < s.length; j++) {
+        // we loop each character and match it to the character in the key of map
+          decWord += map.get(s[j]);
+      }
+      decoded.push(decWord);
+      // we push each decoded word to the array we created
+  }
+
+  let uniqueTransformations = new Set(decoded);
+  // Set is sort of like an array but does not use indexes
+// we use new Set() to target the unique values in the decoded array only
+  return uniqueTransformations.size;
+};
+
+
+// In JavaScript, the Set is a built-in object that allows you to store unique values of any type, whether primitive values or object references.
+
+// Unlike arrays or objects, Set does not have indices, and you cannot access elements using an index. You interact with the elements through methods like add, has, delete, and iteration.
+
+// In summary, a Set in JavaScript is a data structure that provides a collection of unique values and offers methods for adding, removing, checking existence, and iterating over these values. It's a handy tool for scenarios where uniqueness is a priority.
