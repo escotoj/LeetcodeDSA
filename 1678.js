@@ -81,5 +81,41 @@ var interpret = function(command) {
 // }
 // interpret(command)
 
+// SOLUTION using count
+var removeOuterParentheses = function(S) {
+    let parenthesCount = 0;
+    let result = "";
+    
+    for (const letter of S) {
+        if (letter === "(") {
+            if (parenthesCount) {
+                result += letter;
+            }
+            parenthesCount++;
+        } else {
+            parenthesCount--;
+            if (parenthesCount) {
+                result += letter;
+            }
+        }
+    }
+    
+    return result;
+};
 
 
+// Initialize variables: parenthesCount to keep track of the current count of parentheses, and result to store the final result.
+
+// Iterate through each character (letter) in the input string S.
+
+// If the current character is an open parenthesis "(":
+
+// If parenthesCount is not zero (meaning it's not the outermost parenthesis), append the open parenthesis to the result.
+// Increment parenthesCount to keep track of the nested parentheses.
+// If the current character is a close parenthesis ")":
+
+// Decrement parenthesCount to track the closing of nested parentheses.
+// If parenthesCount is not zero (meaning it's not the outermost parenthesis), append the close parenthesis to the result.
+// Continue this process for each character in the string.
+
+// The final result is a string without the outermost parentheses.
