@@ -66,3 +66,22 @@ var smallerNumbersThanCurrent = function(nums) {
 // The map method is used on the original array nums.
 // For each element num in nums, it finds the index of num in the sorted array (sorted) using indexOf.
 // The result is an array where each element represents the count of numbers smaller than the corresponding element in the original array.
+
+
+
+// USING SPREAD Operator 
+var smallerNumbersThanCurrent = function(nums) {
+    
+    let x = [...nums]
+    let sorted = x.sort((a,b)=> a-b)
+    let solution = []
+  
+    for(el of nums){
+       
+        solution.push(sorted.indexOf(el))
+        
+    }
+    
+    return solution
+    
+};
