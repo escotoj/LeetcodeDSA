@@ -39,3 +39,26 @@ var repeatedCharacter = function (s) {
         }
     }
 };
+
+
+// USING SET 
+var repeatedCharacter = function (s) {
+    let set = new Set()
+    for(let i = 0; i < s.length; i++) {
+        if(set.has(s[i])) {
+            return s[i]
+        } else {
+            set.add(s[i])
+        }
+    }
+    };
+
+//     let letterSet = new Set(): This line initializes an empty Set called letterSet. A Set is a collection of unique values, and it's used here to keep track of the characters encountered in the string.
+
+// for(let i = 0; i < s.length; i++) {: This line starts a loop that iterates through each character in the string s.
+
+// if(letterSet.has(s[i])) return s[i]: Inside the loop, it checks whether the current character (s[i]) is already in the letterSet. If it is, it means that the character has been encountered before, and the function immediately returns this character. This effectively stops the loop and exits the function.
+
+// letterSet.add(s[i]): If the current character is not in the letterSet (i.e., it's the first time encountering it), it adds the character to the set using the add method. This ensures that subsequent iterations can check for the presence of characters in the set.
+
+// The loop continues until a repeated character is found
