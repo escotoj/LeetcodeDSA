@@ -53,3 +53,14 @@ var reverseWords = function(s) {
     return queue.join(' ')
 
 }
+
+
+// Define the reverseWords function that takes a string 's' as input
+var reverseWords = function(s) {
+    // Step 1: Split the string into an array of words
+    return s.split(' ') // Split the string 's' by spaces into an array of substrings (words)
+            .map(item => item.trim()) // Step 2: Trim leading and trailing whitespace from each word
+            .filter(item => item !== '') // Step 3: Remove any empty strings from the array (which result from consecutive spaces)
+            .reverse() // Step 4: Reverse the order of words in the array
+            .join(' '); // Step 5: Join the words back into a single string with spaces between them
+};
