@@ -62,3 +62,33 @@ var longestCommonPrefix = function(strs) {
 // If the code has iterated through all the strings without finding any character mismatches, it means that the common prefix extends through the entire length of the first string (strs[0]). In this case, the function returns the entire strs[0] string, as it is the longest common prefix.
 
 // This code efficiently compares characters across all strings and stops as soon as it encounters a mismatch, which makes it a valid approach for finding the longest common prefix in an array of strings.
+
+
+// Define a function named longestCommonPrefix that takes an array of strings as input
+var longestCommonPrefix = function(strs) {
+    // Initialize cur with the first string in the array to start comparison.
+    // This will hold the current longest common prefix.
+    let cur = strs[0]
+    // Initialize temp as an empty string. This will temporarily store the common prefix between the current and next string.
+    let temp = ""
+
+    // Start iterating from the second string in the array
+    for(let i = 1; i < strs.length; i++){
+        // Compare the current string (cur) with the next string in the array (strs[i])
+        for(let j = 0; j < cur.length; j++){
+            // If characters match at the current position, append the character to temp
+            if(cur[j] == strs[i][j]){
+                temp += cur[j]
+            } else {
+                // If a mismatch is found, stop the comparison for this string
+                break
+            }
+        }
+        // Update cur with the common prefix found so far (stored in temp)
+        cur = temp
+        // Reset temp to an empty string for the next iteration
+        temp = ""
+    }
+    // After iterating through all strings, return cur, which now contains the longest common prefix
+    return cur
+};
