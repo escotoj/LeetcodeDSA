@@ -92,3 +92,25 @@ var longestCommonPrefix = function(strs) {
     // After iterating through all strings, return cur, which now contains the longest common prefix
     return cur
 };
+
+
+// second solution, using indexof and substring 
+var longestCommonPrefix = function(strs) {
+    if (strs.length === 0) return ""; // If the array is empty, return an empty string.
+
+    // Start with the first string in the array as the initial prefix.
+    let prefix = strs[0];
+
+    // Compare this prefix with every string in the array.
+    for (let i = 1; i < strs.length; i++) {
+        while (strs[i].indexOf(prefix) !== 0) {
+            // Shorten the prefix by one character from the end until it matches the start of strs[i].
+            prefix = prefix.substring(0, prefix.length - 1);
+            // If the prefix is reduced to an empty string, no common prefix exists.
+            if (prefix === "") return "";
+        }
+    }
+
+    // After comparing with all strings, the remaining prefix is the longest common prefix.
+    return prefix;
+};
