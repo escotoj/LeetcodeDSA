@@ -48,3 +48,37 @@ var removeOuterParentheses = function(s) {
 };
 
 removeOuterParentheses(s)
+
+
+// Function to remove the outermost parentheses in every primitive string in the input string S
+var removeOuterParentheses = function(s) {
+    // Initialize a counter to keep track of the balance of parentheses
+    let parenthesCount = 0;
+    // Initialize an empty string to build the result without outer parentheses
+    let result = "";
+    
+    // Loop through each character in the input string S
+    for (const letter of s) {
+        // Check if the current character is an opening parenthesis
+        if (letter === "(") {
+            // If parenthesCount is not zero, it means we are not at an outer parenthesis,
+            // so we add the opening parenthesis to the result
+            if (parenthesCount) {
+                result += letter;
+            }
+            // Increment parenthesCount to reflect the addition of an opening parenthesis
+            parenthesCount++;
+        } else {
+            // Decrement parenthesCount to reflect the addition of a closing parenthesis
+            parenthesCount--;
+            // If parenthesCount is not zero after decrementing, it means we are not closing
+            // an outer parenthesis, so we add the closing parenthesis to the result
+            if (parenthesCount) {
+                result += letter;
+            }
+        }
+    }
+    
+    // Return the resulting string, which has all outermost parentheses removed
+    return result;
+};
