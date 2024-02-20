@@ -45,3 +45,51 @@ const peakFinder = function(nums) {
   // When the loop exits (when left is equal to or greater than right), it means the search range has been reduced to a single element, which is the peak element.
   
   // return nums[left];: Returns the value of the peak element, which is located at the index indicated by either left or right.
+
+  // Function to find the peak element in an array
+function findPeakElement(nums) {
+  // If the array has only one element, that element is the peak
+  if (nums.length === 1) {
+    return nums[0];
+  }
+
+  // Check the first and last elements separately to handle edge cases
+  if (nums[0] > nums[1]) {
+    return nums[0];
+  }
+  if (nums[nums.length - 1] > nums[nums.length - 2]) {
+    return nums[nums.length - 1];
+  }
+
+  // Iterate through the array starting from the second element and
+  // ending at the second to last element
+  for (let i = 1; i < nums.length - 1; i++) {
+    // Check if the current element is greater than its neighbors
+    if (nums[i] > nums[i - 1] && nums[i] > nums[i + 1]) {
+      // If so, return the current element as the peak value
+      return nums[i];
+    }
+  }
+
+  // Given the problem statement guarantees exactly one peak,
+  // the code should find and return it before reaching this point.
+  // This return is just a fallback and theoretically unreachable.
+  return null;
+}
+
+
+// Function to find the peak element in an array
+function findPeak(nums) {
+  // Loop through the array
+  for (let i = 0; i < nums.length - 1; i++) {
+    // If the current element is greater than the next one,
+    // it must be the peak, so return it.
+    if (nums[i] > nums[i + 1]) {
+      return nums[i];
+    }
+  }
+  
+  // If no peak is found in the loop, then the last element must be the peak,
+  // because the array is guaranteed to have one peak.
+  return nums[nums.length - 1];
+}
