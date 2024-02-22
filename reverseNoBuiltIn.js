@@ -26,3 +26,30 @@ const reverse = (str) => {
 
 // arr.join('') reverts the modified array back to a string. The join('') method combines all the elements of the array, effectively producing a reversed string.
 // The logic is to reverse the string by converting it to an array, swapping characters by iterating up to the middle of the array, and rejoining the characters into a reversed string. The use of Math.floor ensures the correct number of iterations to avoid redundant swaps when the string length is odd.
+
+
+function reverseString(str) {
+    let reversed = ''; // Initialize an empty string to hold the reversed characters
+  
+    // Loop through the string in reverse order
+    for (let i = str.length - 1; i >= 0; i--) {
+      reversed += str[i]; // Append each character to 'reversed'
+    }
+  
+    return reversed; // Return the reversed string
+  }
+
+console.log(reverseString("hello")); // Expected output: "olleh"
+console.log(reverseString("OpenAI")); // Expected output: "IAnepO"
+console.log(reverseString("12345")); // Expected output: "54321"
+console.log(reverseString("")); // Expected output: "" (empty string should return an empty string)
+console.log(reverseString("a")); 
+  
+
+// Initialization of reversed String: A new string variable reversed is created and initialized as an empty string. This variable will gradually be filled with characters from str, but in reverse order.
+
+// Looping in Reverse: The loop is set up to start from the last character of str (using str.length - 1 as the starting index) and decrement the index i after each iteration. This backward loop ensures that we start appending characters from the end of str to the beginning of reversed.
+
+// Appending Characters: In each iteration of the loop, the current character (str[i]) is added to the reversed string. The += operator is used to append the character to whatever is currently in reversed. Since the loop runs backward through str, characters are appended to reversed in the reverse of their original order in str.
+
+// Return the Reversed String: Once the loop has processed every character in str (when i has been decremented down to 0), the loop ends. At this point, reversed contains all of the characters from str, but in reverse order. The function then returns reversed.
