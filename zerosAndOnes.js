@@ -33,3 +33,31 @@ var zeroesAndOnes = function(str) {
 // After the loop has gone through all the characters in the string, it checks if the counts of '0's and '1's are equal by comparing count0 and count1. If they are equal, it means that the string contains an equal number of '0's and '1's, and the function returns true.
 
 // If the counts are not equal, the function returns false.
+
+
+function hasEqualZeroesAndOnes(str) {
+    let count = 0; // Initialize a counter to 0
+  
+    // Iterate through each character in the string
+    for (let i = 0; i < str.length; i++) {
+      // If the character is '1', increment the count
+      if (str[i] === '1') {
+        count++;
+      } else if (str[i] === '0') {
+        // If the character is '0', decrement the count
+        count--;
+      }
+    }
+  
+    // If the final count is 0, then there are an equal number of 0s and 1s
+    return count === 0;
+  }
+  
+
+// Count Variable: The function uses a single integer count to track the difference between the number of 1s and 0s. This approach efficiently utilizes space by avoiding the need to store separate counts for each digit.
+
+// Looping Through the String: As the function iterates through the string, it adjusts the count based on the current character. Encountering a '1' increases count, while encountering a '0' decreases it. This way, count reflects the net difference between the numbers of 1s and 0s.
+
+// Equal Number Check: If the string has an equal number of 0s and 1s, all increments and decrements to count will cancel out, resulting in count being 0 by the end of the iteration.
+
+// Return Statement: The function returns true if count is 0, indicating equal numbers of 0s and 1s. Otherwise, it returns false.
