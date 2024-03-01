@@ -30,3 +30,24 @@ var arrayIntersection = function(arr1, arr2) {
 // After both loops complete, the code logs the newArr array to the console using console.log(newArr) to show the intersecting elements.
 
 // Finally, the function returns the newArr array, which contains all the intersecting elements found in both arr1 and arr2.
+
+function findIntersection(arr1, arr2) {
+    // Use a Set to store the elements of the second array for efficient lookup
+    const setArr2 = new Set(arr2);
+  
+    // Filter elements in arr1 that are also in arr2
+    const intersection = arr1.filter(item => setArr2.has(item));
+  
+    // Use a Set to remove duplicates from the intersection, if any
+    return [...new Set(intersection)];
+  }
+  
+  // Example usage
+  const arr1 = [1, 2, 3, 4, 5];
+  const arr2 = [3, 4, 5, 6, 7];
+  console.log(findIntersection(arr1, arr2)); // Expected output: [3, 4, 5]
+  
+
+//   A Set is used to store the elements of arr2. This is because lookup operations in a set are generally faster than in an array, especially for larger datasets.
+// The filter method iterates through arr1 and keeps only the elements that are also found in arr2 (checked via setArr2.has(item)).
+// Finally, a new Set is created from the intersection array to ensure all elements are unique, effectively removing any duplicates. The spread operator (...) is used to convert the set back into an array.
