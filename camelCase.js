@@ -47,3 +47,43 @@ var camelCase = function(str) {
     
     //  };
     
+
+    function toCamelCase(str) {
+        let result = "";
+        let makeNextCharUpperCase = false;
+      
+        for (let i = 0; i < str.length; i++) {
+          // Directly convert the first character to lowercase
+          if (i === 0) {
+            result += str[i].toLowerCase();
+            continue;
+          }
+      
+          // Check if the current character is a space
+          if (str[i] === " ") {
+            makeNextCharUpperCase = true; // Set flag to capitalize next character
+            continue; // Skip adding the space to the result
+          }
+      
+          if (makeNextCharUpperCase) {
+            result += str[i].toUpperCase(); // Capitalize the character
+            makeNextCharUpperCase = false; // Reset the flag
+          } else {
+            result += str[i].toLowerCase(); // Add the character in lowercase
+          }
+        }
+      
+        return result;
+      }
+      
+      // Example usage
+      console.log(toCamelCase("hello world")); // "helloWorld"
+      console.log(toCamelCase("This is a test string")); // "thisIsATestString"
+      console.log(toCamelCase("another test string here")); // "anotherTestStringHere"
+      
+
+
+//       Initial Character: The first character of the string is always converted to lowercase and added to the result.
+// Spaces as Delimiters: This solution only treats spaces as word delimiters. When a space is encountered, the makeNextCharUpperCase flag is set to true to ensure the next character (indicating the start of a new word) is capitalized.
+// Character Processing: Each character is processed in a loop. If the makeNextCharUpperCase flag is true, the character is capitalized. Otherwise, characters are added to the result string in lowercase.
+// Ignoring Spaces: Spaces are not added to the result string, ensuring words are concatenated without spaces in camelCase format.
