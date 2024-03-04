@@ -67,3 +67,20 @@ var doubleTripleMap = function(arr) {
 // The transformed element is added to the result array using the push method.
 
 // After processing all elements in the input array, we return the result array, which contains the transformed elements corresponding to the original array.
+
+
+
+function transformArray(arr) {
+    return arr.map(num => {
+      // Check if the number is even
+      if (num % 2 === 0) {
+        return num * 2; // Double the number if it's even
+      } else {
+        return num * 3; // Triple the number if it's odd
+      }
+    });
+  }
+  
+  // Example usage
+  const originalArray = [1, 2, 3, 4, 5];
+  const transformedArray = transformArray(originalArray);
