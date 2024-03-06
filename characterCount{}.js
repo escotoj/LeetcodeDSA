@@ -38,3 +38,39 @@ var characterCount = function(str) {
 // // If it exists, increment the count
 // // **count[character]++;
 // This code increments the value associated with the character in the count object, effectively counting how many times that character appears.
+
+function characterCount(inputString) {
+    const charMap = new Map();
+    
+    // Iterate over each character in the input string
+    for (const char of inputString) {
+      // If the map already has the character, increment its count
+      if (charMap.has(char)) {
+        charMap.set(char, charMap.get(char) + 1);
+      }
+      // If the map doesn't have the character, add it with a count of 1
+      else {
+        charMap.set(char, 1);
+      }
+    }
+    
+    return charMap;
+  }
+  
+  // Example usage
+  const exampleString = "hello world";
+  const result = characterCount(exampleString);
+  for (const [char, count] of result) {
+    console.log(`${char}: ${count}`);
+  }
+//   Function Definition: function characterCount(inputString) {...} defines a new function named characterCount which accepts one parameter, inputString, which is the string you want to analyze.
+
+//   Initialize a Map Object: const charMap = new Map(); creates a new Map object. A Map is a collection of key-value pairs where each key is unique. In this context, keys will be the characters from the input string, and their corresponding values will be the counts of how many times each character appears.
+  
+//   Iterate Over the Input String: for (const char of inputString) {...} is a loop that goes through each character in the inputString. For each iteration, char represents the current character from the string.
+  
+//   Check if the Character Already Exists in the Map:
+  
+//   If the map already contains the current character (if (charMap.has(char))), the function retrieves the current count of that character using charMap.get(char), increments it by 1, and updates the map with the new count using charMap.set(char, charMap.get(char) + 1).
+//   If the character is not present in the map (else), it adds the character to the map with an initial count of 1 using charMap.set(char, 1).
+//   Return the Map: After iterating through all characters in the string, the function returns the Map object (return charMap;), which now contains the frequency count of each character.  
