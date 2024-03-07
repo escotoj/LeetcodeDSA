@@ -41,3 +41,33 @@ for (let i = 0; i < nums.length; i++) {
 };
 
 // The inner loop now starts from i + 1 to avoid counting pairs twice (e.g., (0, 1) and (1, 0)).
+
+
+function countPairs(nums, target) {
+    nums.sort((a, b) => a - b); // Sort the array in ascending order
+    let count = 0;
+    
+    let i = 0, j = nums.length - 1;
+    while (i < j) {
+      if (nums[i] + nums[j] < target) {
+        // If nums[i] + nums[j] is less than target, then all pairs
+        // (i, i+1), (i, i+2), ..., (i, j) meet the condition
+        count += (j - i);
+        i++; // Move the first pointer to the right
+      } else {
+        j--; // Move the second pointer to the left
+      }
+    }
+    
+    return count;
+  }
+  
+  // Example usage
+  console.log(countPairs([-1,1,2,3,1], 2)); // Output: 3
+  console.log(countPairs([-6,2,5,-2,-7,-1,3], -2)); // Output: 10
+
+//   By sorting the array, we ensure that we can efficiently find pairs without having to check every combination.
+// The variable count keeps track of the number of valid pairs.
+// Using two pointers, we can cover all possible pairs that might meet the condition without redundant checks.
+// Whenever the sum of nums[i] and nums[j] is less than the target, we know that all elements from i to j-1 paired with i will also be less than the target, so we can add j - i to the count.
+// If the sum is greater than or equal to the target, we need to reduce the sum by moving the second pointer (j) to the left.
