@@ -44,3 +44,19 @@ var maxProductDifference = function(nums) {
 //     return nums[n - 2] * nums[n - 1] - nums[0] * nums[1];
     
 // };
+
+
+function maxProductDifference(nums) {
+    // Sort the array in non-decreasing order
+    nums.sort((a, b) => a - b);
+    // The first pair is the last two numbers (largest)
+    const firstPairProduct = nums[nums.length - 1] * nums[nums.length - 2];
+    // The second pair is the first two numbers (smallest)
+    const secondPairProduct = nums[0] * nums[1];
+    // The maximum product difference
+    return firstPairProduct - secondPairProduct;
+}
+
+// Test the function with the provided examples
+const example1 = [5,6,2,7,4];
+const example2 = [4,2,5,9,7,4,8];
