@@ -140,3 +140,31 @@ var sortSentence = function(s) {
 
 const output = sortSentence(s);
 console.log(output);
+
+
+function sortSentence(s) {
+    // Split the shuffled sentence 's' into an array of words.
+    const words = s.split(' ');
+
+    // Sort the array of words based on the numeric value at the end of each word.
+    // This numeric value indicates the word's original position in the sentence.
+    // Since the problem guarantees no more than 9 words, the last character is always the digit we need.
+    words.sort((a, b) => {
+        return a[a.length - 1] - b[b.length - 1]; // Compare the numeric values (last character of each word).
+    });
+
+    // Transform each word in the array by removing its last character, which is the numeric position indicator.
+    // The 'map' function applies this transformation to each word, and the result is a new array with the numbers removed.
+    const originalWords = words.map(word => word.slice(0, -1)); // Slice off the last character of each word.
+
+    // Join the transformed words back into a single string, which is the original, unshuffled sentence.
+    // Words are joined with a space between them to form a proper sentence.
+    return originalWords.join(' ');
+}
+
+// Test the function with the provided examples
+const example1 = "is2 sentence4 This1 a3";
+const example2 = "Myself2 Me1 I4 and3";
+
+console.log(sortSentence(example1)); // "This is a sentence"
+console.log(sortSentence(example2)); // "Me Myself and I"
