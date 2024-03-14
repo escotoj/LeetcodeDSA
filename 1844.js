@@ -32,7 +32,23 @@ const s = "a1b2c3d4e"
 // - s[5] -> shift('c',3) = 'f'
 // - s[7] -> shift('d',4) = 'h'
  
-var replaceDigits = function(s) {
+function replaceDigits(s) {
+    // Convert the string to an array to manipulate it
+    let arr = s.split('');
 
-    
-};
+    // Iterate through the array, focusing on odd indices which contain digits
+    for (let i = 1; i < arr.length; i += 2) {
+        // For each digit at odd index i, replace it with the character that is 'digit' positions away
+        // from the character at the previous index (i-1).
+        // This is done by converting the character at index (i-1) to its ASCII code with charCodeAt(),
+        // adding the digit (converted to a number) to it, and converting the result back to a character.
+        arr[i] = String.fromCharCode(arr[i - 1].charCodeAt(0) + parseInt(arr[i], 10));
+    }
+
+    // Join the array back into a string and return it
+    return arr.join('');
+}
+
+// Test the function with the provided example
+
+console.log(replaceDigits(s)); // "abbdcfdhe"
